@@ -1,0 +1,30 @@
+config: 1.0
+##  Discord section
+discord_token: "YOUR_TOKEN_ID"
+discord_channel_id: "YOUR_REPORT_CHANNEL"
+discord_activity: "listening" ## status.. watching, playing, listening.
+discord_stats: "to the king"
+## embed
+embed_color: "#F7200B"
+title: "There is a new report on the server!"
+name: ""
+value: "who reported: \n%player%\n\nWho was reported:\n%target%\n\nReason:\n%reason%"
+## Minecraft section
+player_err: "&cOnly a player can execute this command."
+usage: "&cPlease follow the usage: /report <player> <reason>"
+success: "&7The message has been sent to the server administrators, thanks for your cooperation."
+player_null: "&cThe player is not online/exist."
+self_report: "&cYou cant report yourself!"
+no_perms: "&cYou don't have enough permissions."
+plugin_reload: "&aPlugin reloaded!"
+err: "&cSomething is missing to do that command."
+report-staff: "&r\n&7The reporter&8: &a%player%\n&7Who was reported&8: &c%target%\n&r\n&7Reason&8: &6%reason%"
+
+
+
+
+# Links:
+# discord: https://discord.gg/D6k8VJYpyQ
+# discord developer portal: https://discord.com/developers/applications - creating your first bot.
+
+## restart the server after you put the bot token & channel-id.

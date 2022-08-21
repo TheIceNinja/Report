@@ -1,0 +1,19 @@
+name: Report
+version: '${project.version}'
+main: net.theiceninja.report.Main
+api-version: 1.17
+authors: [ TheIceNinja ]
+description: report plugin for minecraft management server.
+website: github.com/theiceninja
+commands:
+  report:
+    description: report a player
+    usage: /report <player> <reason>
+    aliases:
+      - reports
+  reportreload:
+    description: reloading the plugin
+    usage: /<command>
+    aliases:
+      - reportrl
+      - rr
