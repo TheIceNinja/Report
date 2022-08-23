@@ -39,7 +39,7 @@ public final class Main extends JavaPlugin {
                     break;
             }
         }catch (InterruptedException | LoginException e){
-            Bukkit.getConsoleSender().sendMessage(ColorUtils.color("&cInvalid token please set in the console a real token."));
+            Bukkit.getConsoleSender().sendMessage(ColorUtils.color("&cInvalid token please set in the config a real token."));
         }
 
 
