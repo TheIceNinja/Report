@@ -20,12 +20,11 @@ public class ReportCommand implements CommandExecutor {
             return true;
         }
         Player p = (Player) sender;
-        if (args.length == 0){
+        if (args.length == 0) {
             p.sendMessage(ColorUtils.color(plugin.getConfig().getString("usage")));
             return true;
-        } else if (args.length == 1) {
+        } else {
             Player target = Bukkit.getPlayer(args[0]);
-
             if (target == null) {
                 p.sendMessage(ColorUtils.color(plugin.getConfig().getString("player_null")));
                 return true;
@@ -34,15 +33,8 @@ public class ReportCommand implements CommandExecutor {
                 p.sendMessage(ColorUtils.color(plugin.getConfig().getString("self_report")));
                 return true;
             }
-            p.sendMessage(ColorUtils.color(plugin.getConfig().getString("usage")));
-        } else if (args.length >= 2) {
-            Player target = Bukkit.getPlayer(args[0]);
-            if (target == p){
-                p.sendMessage(ColorUtils.color(plugin.getConfig().getString("self_report")));
-                return true;
-            }
-            if (target == null){
-                p.sendMessage(ColorUtils.color(plugin.getConfig().getString("player_null")));
+            if (args.length == 1){
+                p.sendMessage(ColorUtils.color(plugin.getConfig().getString("usage")));
                 return true;
             }
             StringBuilder builder = new StringBuilder();
@@ -56,12 +48,9 @@ public class ReportCommand implements CommandExecutor {
                 if (players.hasPermission("report.read")){
                     players.sendMessage(ColorUtils.color(plugin.getConfig().getString("report-staff").replaceAll("%player%", p.getDisplayName()).replaceAll("%target%", target.getDisplayName()).replaceAll("%reason%", reason)));
                 }
-
             }
             plugin.sendMessage(plugin.getConfig().getString("embed_color"), plugin.getConfig().getString("title"), plugin.getConfig().getString("name"),plugin.getConfig().getString("value").replaceAll("%player%", p.getDisplayName()).replaceAll("%target%", target.getDisplayName()).replaceAll("%reason%", reason), "https://crafatar.com/avatars/" + target.getUniqueId().toString());
         }
-
-
         return true;
     }
 }
