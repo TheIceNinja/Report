@@ -33,7 +33,7 @@ public class ReportCommand implements CommandExecutor {
                 p.sendMessage(ColorUtils.color(plugin.getConfig().getString("self_report")));
                 return true;
             }
-            if (args.length == 1){
+            if (args.length == 1) {
                 p.sendMessage(ColorUtils.color(plugin.getConfig().getString("usage")));
                 return true;
             }

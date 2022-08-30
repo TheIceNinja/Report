@@ -41,8 +41,6 @@ public final class Main extends JavaPlugin {
         }catch (InterruptedException | LoginException e){
             Bukkit.getConsoleSender().sendMessage(ColorUtils.color("&cInvalid token please set in the config a real token."));
         }
-
-
     }
 
     @Override
