@@ -27,7 +27,7 @@ public final class Main extends JavaPlugin {
         saveDefaultConfig();
         try {
            bot = JDABuilder.createDefault(getConfig().getString("discord_token")).build().awaitReady();
-            switch (getConfig().getString("discord_activity")){
+            switch (getConfig().getString("discord_activity")) {
                 case "watching":
                     bot.getPresence().setActivity(Activity.watching(getConfig().getString("discord_stats")));
                     break;
@@ -38,7 +38,7 @@ public final class Main extends JavaPlugin {
                     bot.getPresence().setActivity(Activity.listening(getConfig().getString("discord_stats")));
                     break;
             }
-        }catch (InterruptedException | LoginException e){
+        } catch (InterruptedException | LoginException e) {
             Bukkit.getConsoleSender().sendMessage(ColorUtils.color("&cInvalid token please set in the config a real token."));
         }
     }
@@ -47,7 +47,7 @@ public final class Main extends JavaPlugin {
     public void onDisable() {
         if (bot != null) bot.shutdownNow();
     }
-    public void sendMessage(String color, String title,String name, String value, String url){
+    public void sendMessage(String color, String title,String name, String value, String url) {
         TextChannel reportChannel = bot.getTextChannelById(getConfig().getString("discord_channel_id"));
 
 
@@ -56,10 +56,10 @@ public final class Main extends JavaPlugin {
                 .addField(name, value, false)
                 .setColor(Color.decode(color))
                 .setThumbnail(url);
-        if (reportChannel != null){
+        if (reportChannel != null) {
             reportChannel.sendMessageEmbeds(eb.build()).queue();
 
-        }else {
+        } else {
             Bukkit.getConsoleSender().sendMessage(ColorUtils.color(plugin.getConfig().getString("err")));
         }
     }

@@ -10,12 +10,12 @@ import org.bukkit.entity.Player;
 
 public class ReportCommand implements CommandExecutor {
     Main plugin;
-    public ReportCommand(Main plugin){
+    public ReportCommand(Main plugin) {
         this.plugin = plugin;
     }
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!(sender instanceof Player)){
+        if (!(sender instanceof Player)) {
             sender.sendMessage(ColorUtils.color(plugin.getConfig().getString("player_err")));
             return true;
         }
@@ -38,14 +38,14 @@ public class ReportCommand implements CommandExecutor {
                 return true;
             }
             StringBuilder builder = new StringBuilder();
-            for (int i = 1; i < args.length; i++){
+            for (int i = 1; i < args.length; i++) {
                 builder.append(args[i]);
                 builder.append(" ");
             }
             String reason = builder.toString();
             p.sendMessage(ColorUtils.color(plugin.getConfig().getString("success")));
-            for (Player players : Bukkit.getOnlinePlayers()){
-                if (players.hasPermission("report.read")){
+            for (Player players : Bukkit.getOnlinePlayers()) {
+                if (players.hasPermission("report.read")) {
                     players.sendMessage(ColorUtils.color(plugin.getConfig().getString("report-staff").replaceAll("%player%", p.getDisplayName()).replaceAll("%target%", target.getDisplayName()).replaceAll("%reason%", reason)));
                 }
             }
