@@ -14,16 +14,14 @@ import org.bukkit.plugin.java.JavaPlugin;
 import javax.security.auth.login.LoginException;
 import java.awt.*;
 
-public final class Main extends JavaPlugin {
-    Main plugin;
+public final class ReportPlugin extends JavaPlugin {
     public static JDA bot;
     @Override
     public void onEnable() {
         getCommand("report").setExecutor(new ReportCommand(this));
         getCommand("reportreload").setExecutor(new ReportReloadCommand(this));
 
-        reloadConfig();
-        getConfig().options().copyDefaults();
+        getConfig().options().copyDefaults(false);
         saveDefaultConfig();
         try {
            bot = JDABuilder.createDefault(getConfig().getString("discord_token")).build().awaitReady();
@@ -60,7 +58,7 @@ public final class Main extends JavaPlugin {
             reportChannel.sendMessageEmbeds(eb.build()).queue();
 
         } else {
-            Bukkit.getConsoleSender().sendMessage(ColorUtils.color(plugin.getConfig().getString("err")));
+            Bukkit.getConsoleSender().sendMessage(ColorUtils.color(getConfig().getString("err")));
         }
     }
 }

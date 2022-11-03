@@ -1,19 +1,17 @@
 name: Report
 version: '${project.version}'
-main: net.theiceninja.report.Main
+main: net.theiceninja.report.ReportPlugin
 api-version: 1.17
 authors: [ TheIceNinja ]
 description: report plugin for minecraft management server.
 website: github.com/theiceninja
 commands:
   report:
-    description: report a player
+    description: report a player for doing something bad
     usage: /report <player> <reason>
-    aliases:
-      - reports
+
   reportreload:
-    description: reloading the plugin
+    description: reloading the plugin config
     usage: /<command>
     aliases:
       - reportrl
-      - rr

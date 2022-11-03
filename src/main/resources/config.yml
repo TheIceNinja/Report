@@ -19,6 +19,7 @@ no_perms: "&cYou don't have enough permissions."
 plugin_reload: "&aPlugin reloaded!"
 err: "&cSomething is missing to do that command."
 report-staff: "&r\n&7The reporter&8: &a%player%\n&7Who was reported&8: &c%target%\n&r\n&7Reason&8: &6%reason%"
+cooldown: "&cYou are currently on cooldown wait 2 minutes to report again!"
 
 
 
