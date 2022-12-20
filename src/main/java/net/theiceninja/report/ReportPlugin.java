@@ -45,6 +45,7 @@ public final class ReportPlugin extends JavaPlugin {
     public void onDisable() {
         if (bot != null) bot.shutdownNow();
     }
+
     public void sendMessage(String color, String title, String name, String value, String url) {
         TextChannel reportChannel = bot.getTextChannelById(getConfig().getString("discord_channel_id"));
 

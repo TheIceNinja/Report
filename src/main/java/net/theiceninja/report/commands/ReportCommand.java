@@ -14,12 +14,12 @@ import java.util.List;
 import java.util.UUID;
 
 public class ReportCommand implements CommandExecutor {
-    private final ReportPlugin plugin;
+    private ReportPlugin plugin;
+    private List<UUID> inCooldown = new ArrayList<>();
 
     public ReportCommand(ReportPlugin plugin) {
         this.plugin = plugin;
     }
-    private List<UUID> inCooldown = new ArrayList<>();
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -27,10 +27,11 @@ public class ReportCommand implements CommandExecutor {
             sender.sendMessage(ColorUtils.color(plugin.getConfig().getString("player_err")));
             return true;
         }
+
         Player player = (Player) sender;
+
         if (args.length == 0) {
             player.sendMessage(ColorUtils.color(plugin.getConfig().getString("usage")));
-            return true;
         } else {
             Player target = Bukkit.getPlayer(args[0]);
             if (target == null) {
