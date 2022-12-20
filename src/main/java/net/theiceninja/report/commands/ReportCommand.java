@@ -37,18 +37,22 @@ public class ReportCommand implements CommandExecutor {
                 player.sendMessage(ColorUtils.color(plugin.getConfig().getString("player_null")));
                 return true;
             }
+
             if (target == player) {
                 player.sendMessage(ColorUtils.color(plugin.getConfig().getString("self_report")));
                 return true;
             }
+
             if (args.length == 1) {
                 player.sendMessage(ColorUtils.color(plugin.getConfig().getString("usage")));
                 return true;
             }
+
             if (inCooldown.contains(player.getUniqueId())) {
                 player.sendMessage(ColorUtils.color(plugin.getConfig().getString("cooldown")));
                 return true;
             }
+
             if (!inCooldown.contains(player.getUniqueId())) {
                 inCooldown.add(player.getUniqueId());
                 new BukkitRunnable() {
@@ -64,6 +68,7 @@ public class ReportCommand implements CommandExecutor {
                 builder.append(args[i]);
                 builder.append(" ");
             }
+
             String reason = builder.toString();
             player.sendMessage(ColorUtils.color(plugin.getConfig().getString("success")));
             for (Player players : Bukkit.getOnlinePlayers()) {

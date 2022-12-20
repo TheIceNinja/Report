@@ -48,7 +48,6 @@ public final class ReportPlugin extends JavaPlugin {
     public void sendMessage(String color, String title, String name, String value, String url) {
         TextChannel reportChannel = bot.getTextChannelById(getConfig().getString("discord_channel_id"));
 
-
         EmbedBuilder eb = new EmbedBuilder();
         eb.setTitle(title)
                 .addField(name, value, false)

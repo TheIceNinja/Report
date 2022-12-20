@@ -19,11 +19,13 @@ public class ReportReloadCommand implements CommandExecutor {
             sender.sendMessage(ColorUtils.color(plugin.getConfig().getString("player_err")));
             return true;
         }
+
         Player player = (Player) sender;
         if (!player.hasPermission("report.reload")) {
             player.sendMessage(ColorUtils.color(plugin.getConfig().getString("no_perms")));
             return true;
         }
+
         plugin.reloadConfig();
         player.sendMessage(ColorUtils.color(plugin.getConfig().getString("plugin_reload")));
 
