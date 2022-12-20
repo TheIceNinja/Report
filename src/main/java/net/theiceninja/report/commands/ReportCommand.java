@@ -34,6 +34,7 @@ public class ReportCommand implements CommandExecutor {
             player.sendMessage(ColorUtils.color(plugin.getConfig().getString("usage")));
         } else {
             Player target = Bukkit.getPlayer(args[0]);
+
             if (target == null) {
                 player.sendMessage(ColorUtils.color(plugin.getConfig().getString("player_null")));
                 return true;

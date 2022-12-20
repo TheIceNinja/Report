@@ -14,13 +14,14 @@ public class ReportReloadCommand implements CommandExecutor {
     }
 
     @Override
-    public boolean onCommand(CommandSender sender,Command command,String label,String[] args) {
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
             sender.sendMessage(ColorUtils.color(plugin.getConfig().getString("player_err")));
             return true;
         }
 
         Player player = (Player) sender;
+
         if (!player.hasPermission("report.reload")) {
             player.sendMessage(ColorUtils.color(plugin.getConfig().getString("no_perms")));
             return true;

@@ -25,6 +25,7 @@ public final class ReportPlugin extends JavaPlugin {
         saveDefaultConfig();
         try {
            bot = JDABuilder.createDefault(getConfig().getString("discord_token")).build().awaitReady();
+
             switch (getConfig().getString("discord_activity")) {
                 case "watching":
                     bot.getPresence().setActivity(Activity.watching(getConfig().getString("discord_stats")));
@@ -36,6 +37,7 @@ public final class ReportPlugin extends JavaPlugin {
                     bot.getPresence().setActivity(Activity.listening(getConfig().getString("discord_stats")));
                     break;
             }
+
         } catch (InterruptedException | LoginException e) {
             Bukkit.getConsoleSender().sendMessage(ColorUtils.color("&cInvalid token please set in the config a real token."));
         }
@@ -48,7 +50,6 @@ public final class ReportPlugin extends JavaPlugin {
 
     public void sendMessage(String color, String title, String name, String value, String url) {
         TextChannel reportChannel = bot.getTextChannelById(getConfig().getString("discord_channel_id"));
-
         EmbedBuilder eb = new EmbedBuilder();
         eb.setTitle(title)
                 .addField(name, value, false)
