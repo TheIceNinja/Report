@@ -8,7 +8,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class ReportReloadCommand implements CommandExecutor {
+
    private final ReportPlugin plugin;
+
     public ReportReloadCommand(ReportPlugin plugin) {
         this.plugin = plugin;
     }

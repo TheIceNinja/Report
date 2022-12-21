@@ -16,6 +16,7 @@ import java.awt.*;
 
 public final class ReportPlugin extends JavaPlugin {
     public static JDA bot;
+
     @Override
     public void onEnable() {
         getCommand("report").setExecutor(new ReportCommand(this));
