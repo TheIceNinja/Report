@@ -15,6 +15,7 @@ import javax.security.auth.login.LoginException;
 import java.awt.*;
 
 public final class ReportPlugin extends JavaPlugin {
+
     public static JDA bot;
 
     @Override
